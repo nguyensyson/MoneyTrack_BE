@@ -28,45 +28,42 @@ public class CategoryDataSeeder implements ApplicationRunner {
     }
 
     private void seedIncome() {
-        Category salary     = saveParent("Salary",        CategoryType.INCOME);
-        Category freelance  = saveParent("Freelance",     CategoryType.INCOME);
-        Category investment = saveParent("Investment",    CategoryType.INCOME);
-        Category other      = saveParent("Other Income",  CategoryType.INCOME);
-
-        saveChildren(salary,     List.of("Monthly Salary", "Bonus"),                CategoryType.INCOME);
-        saveChildren(freelance,  List.of("Project Payment", "Consulting"),          CategoryType.INCOME);
-        saveChildren(investment, List.of("Dividends", "Interest", "Capital Gains"), CategoryType.INCOME);
-        saveChildren(other,      List.of("Gift", "Refund"),                         CategoryType.INCOME);
+        Category salary     = saveParent("Lương",        CategoryType.INCOME);
+        Category freelance  = saveParent("Thu nhập khác",     CategoryType.INCOME);
+        Category moneyTransferred = saveParent("Tiền chuyển đến",    CategoryType.INCOME);
+        Category earnProfit = saveParent("Thu lãi",    CategoryType.INCOME);
+        Category other      = saveParent("Khoản thu khác",  CategoryType.INCOME);
     }
 
     private void seedExpense() {
-        Category food          = saveParent("Food & Drink",    CategoryType.EXPENSE);
-        Category transport     = saveParent("Transport",       CategoryType.EXPENSE);
-        Category housing       = saveParent("Housing",         CategoryType.EXPENSE);
-        Category healthcare    = saveParent("Healthcare",      CategoryType.EXPENSE);
-        Category entertainment = saveParent("Entertainment",   CategoryType.EXPENSE);
-        Category shopping      = saveParent("Shopping",        CategoryType.EXPENSE);
-        Category education     = saveParent("Education",       CategoryType.EXPENSE);
-        Category other         = saveParent("Other Expense",   CategoryType.EXPENSE);
+        Category food          = saveParent("Ăn uống",    CategoryType.EXPENSE);
+        Category invoice     = saveParent("Hoá đơn & Tiện ích",       CategoryType.EXPENSE);
+        Category shopping       = saveParent("Mua sắm",         CategoryType.EXPENSE);
+        Category family    = saveParent("Gia đình",      CategoryType.EXPENSE);
+        Category transfer = saveParent("Di chuyển",   CategoryType.EXPENSE);
+        Category health      = saveParent("Sức khoẻ",        CategoryType.EXPENSE);
+        Category education     = saveParent("Giáo dục",       CategoryType.EXPENSE);
+        Category entertainment     = saveParent("Giãi trí",       CategoryType.EXPENSE);
+        Category present     = saveParent("Quà tặng & Quyên góp",       CategoryType.EXPENSE);
+        Category insurance     = saveParent("Bảo hểm",       CategoryType.EXPENSE);
+        Category invest     = saveParent("Đầu tư",       CategoryType.EXPENSE);
+        Category other         = saveParent("Các chi phí khác",   CategoryType.EXPENSE);
+        Category moneyTransferred         = saveParent("Tiền chuyển đi",   CategoryType.EXPENSE);
+        Category payInterest         = saveParent("Trả lãi",   CategoryType.EXPENSE);
 
-        saveChildren(food,          List.of("Restaurant", "Groceries", "Coffee"),          CategoryType.EXPENSE);
-        saveChildren(transport,     List.of("Fuel", "Public Transit", "Taxi"),             CategoryType.EXPENSE);
-        saveChildren(housing,       List.of("Rent", "Utilities", "Maintenance"),           CategoryType.EXPENSE);
-        saveChildren(healthcare,    List.of("Medicine", "Doctor", "Insurance"),            CategoryType.EXPENSE);
-        saveChildren(entertainment, List.of("Movies", "Games", "Streaming"),               CategoryType.EXPENSE);
-        saveChildren(shopping,      List.of("Clothing", "Electronics", "Home Goods"),      CategoryType.EXPENSE);
-        saveChildren(education,     List.of("Tuition", "Books", "Online Courses"),         CategoryType.EXPENSE);
-        saveChildren(other,         List.of("Miscellaneous"),                              CategoryType.EXPENSE);
+        saveChildren(invoice,     List.of("Thuê nhà", "Hoá đơn nước", "Hoá đơn điện thoại", "Hoá đơn điện", "Hoá đơn gas", "Hoá đơn TV", "Hoá đn internet", "Hoá đơn tiện ích khác"),             CategoryType.EXPENSE);
+        saveChildren(shopping,       List.of("Đồ dùng cá nhân", "Đồ gia dụng", "Làm đẹp"),           CategoryType.EXPENSE);
+        saveChildren(family,    List.of("Sửa & trang trí nhà", "Dịch vụ gia đình", "Vật nuôi"),            CategoryType.EXPENSE);
+        saveChildren(transfer, List.of("Bảo dưỡng xe"),               CategoryType.EXPENSE);
+        saveChildren(health,      List.of("Khám sức khoẻ", "Thể dụng thể thao"),      CategoryType.EXPENSE);
+        saveChildren(entertainment,         List.of("Dịch vụ trực tuyến", "Vui - chơi"),                              CategoryType.EXPENSE);
     }
 
     private void seedDebt() {
-        Category loan       = saveParent("Loan Payment",  CategoryType.DEBT);
-        Category creditCard = saveParent("Credit Card",   CategoryType.DEBT);
-        Category other      = saveParent("Other Debt",    CategoryType.DEBT);
-
-        saveChildren(loan,       List.of("Personal Loan", "Car Loan", "Mortgage"), CategoryType.DEBT);
-        saveChildren(creditCard, List.of("Monthly Payment", "Minimum Payment"),    CategoryType.DEBT);
-        saveChildren(other,      List.of("Family Loan", "Friend Loan"),            CategoryType.DEBT);
+        Category loan       = saveParent("Cho vay",  CategoryType.DEBT);
+        Category payOffDebt = saveParent("Trả nợ",   CategoryType.DEBT);
+        Category debtCollection      = saveParent("Thu nợ",    CategoryType.DEBT);
+        Category borrow      = saveParent("Đi vay",    CategoryType.DEBT);
     }
 
     private Category saveParent(String name, CategoryType type) {
