@@ -23,9 +23,15 @@ public class AuthController {
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
+    @PostMapping("/register-admin")
+    public ResponseEntity<Void> registerAdmin(@Valid @RequestBody RegisterRequest request) {
+        authService.registerAdmin(request.getEmail(), request.getPassword(), request.getName());
+        return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+
     @PostMapping("/login")
     public ResponseEntity<AuthResponse> login(@Valid @RequestBody LoginRequest request) {
-        String token = authService.login(request.getEmail(), request.getPassword());
-        return ResponseEntity.ok(new AuthResponse(token));
+        AuthResponse response = authService.login(request.getEmail(), request.getPassword());
+        return ResponseEntity.ok(response);
     }
 }

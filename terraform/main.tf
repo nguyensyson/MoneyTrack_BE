@@ -234,11 +234,11 @@ data "aws_iam_policy_document" "ecs_task_assume_role" {
 
 # IAM role used by ECS to pull images from ECR and write logs to CloudWatch
 resource "aws_iam_role" "ecs_task_execution" {
-  name               = "ecsTaskExecutionRole"
+  name               = "moneytrack-ecsTaskExecutionRole"
   assume_role_policy = data.aws_iam_policy_document.ecs_task_assume_role.json
 
   tags = {
-    Name = "ecsTaskExecutionRole"
+    Name = "moneytrack-ecsTaskExecutionRole"
   }
 }
 
