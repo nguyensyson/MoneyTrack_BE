@@ -126,6 +126,11 @@ public class TransactionService {
         if ("previous".equalsIgnoreCase(month)) {
             return now.minusMonths(1);
         }
+        
+        if (month != null && month.matches("0?[1-9]|1[0-2]")) {
+            return YearMonth.of(now.getYear(), Integer.parseInt(month));
+        }
+        
         return now; // default: current
     }
 }
