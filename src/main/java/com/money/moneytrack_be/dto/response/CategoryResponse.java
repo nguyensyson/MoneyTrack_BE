@@ -13,4 +13,5 @@ public class CategoryResponse {
     private String name;
     private CategoryType type;
     private List<CategoryResponse> children;
+    private Long parentId;
 }

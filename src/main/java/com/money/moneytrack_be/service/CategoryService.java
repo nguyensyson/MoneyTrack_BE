@@ -87,6 +87,7 @@ public class CategoryService {
                         .id(child.getId())
                         .name(child.getName())
                         .type(child.getType())
+                        .parentId(child.getParent().getId())
                         .children(List.of())
                         .build())
                 .collect(Collectors.toList());
